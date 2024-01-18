@@ -32,7 +32,6 @@ function generateDynamicCalendar() {
 
     mainCalendrier.innerHTML = '';
 
-
     const currentDate = new Date();
     let pastEventFound = false;
 
@@ -41,40 +40,39 @@ function generateDynamicCalendar() {
         link.href = `2024/round/${event.num}-${event.name}.html`;
 
         const button = document.createElement('a');
+        button.setAttribute('href', link.href);
 
-        button.innerHTML = `
-            <a href="${link.href}">
-                <button class="btn-calendrier">
-                    <div class="calendrier-date">
-                        <p>${event.shortdate}</p>
-                    </div>
-                    <img src="../img/flag/${event.flag}-flag.png" alt="${event.name} drapeau" class="calendar-flag"></img>
-                    <div class="calendrier-nom">
-                        <p>GP ${event.name}</p>
-                    </div>
-                </button>
-            </a>
-        `;
-
+        let buttonClasses = 'btn-calendrier';
         if (new Date(event.date) < currentDate) {
-            button.classList.add('previous');
+            buttonClasses += ' previous';
             pastEventFound = true;
         }
 
-        if (event.sprint === 'yes') {
-            button.classList.add('sprint');
+        if (event.sprint === 'yes') {
+            buttonClasses += ' sprint';
         }
+
+        button.innerHTML = `
+            <button class="${buttonClasses}">
+                <div class="calendrier-date">
+                    <p>${event.shortdate}</p>
+                </div>
+                <img src="../img/flag/${event.flag}-flag.png" alt="${event.name} drapeau" class="calendar-flag"></img>
+                <div class="calendrier-nom">
+                    <p>GP ${event.name}</p>
+                </div>
+            </button>
+        `;
 
         // Ajoutez une balise <p> entre les événements passés et à venir
         if (pastEventFound && new Date(event.date) > currentDate) {
             const separator = document.createElement('h2');
             separator.textContent = 'Prochainement';
-            separator.classList.add('mainsubtitle')
+            separator.classList.add('mainsubtitle');
             mainCalendrier.appendChild(separator);
             pastEventFound = false; // Pour ne l'ajouter qu'une fois
         }
 
         mainCalendrier.appendChild(button);
     }
-
 }
