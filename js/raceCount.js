@@ -7,9 +7,9 @@ function getRaceCount(){
         let compteurCourses = document.getElementById("racecount");
         let baseNBCourses = document.getElementById("basenbcourse").textContent;
         const baseNBCoursesInt = parseInt(baseNBCourses, 10);
-        if(season == "2022"){
+        if(season == "2023"){
             compteurCourses.textContent = baseNBCoursesInt;
-        } else if (season == "2023"){
+        } else if (season == "2024"){
             const lastRound = RaceTable.Races[0].round;
             const lastRoundInt = parseInt(lastRound, 10);
             
