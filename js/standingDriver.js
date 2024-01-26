@@ -1,1 +1,157 @@
-function getDriverStanding(){fetch("https://ergast.com/api/f1/current/driverStandings.json").then(e=>e.json()).then(({MRData:{StandingsTable:e}})=>{if("2022"==e.season){let t=document.getElementById("endflag");t.setAttribute("style","visibility: hidden; display: none;");let s=document.getElementById("main-class"),a=document.createElement("div");s.append(a),a.classList.add("cta-class");let n=document.createElement("h2"),i=document.createElement("div"),l=document.createElement("div"),r=document.createElement("div"),d=document.createElement("a"),c=document.createElement("img"),p=document.createElement("p"),m=document.createElement("div"),o=document.createElement("div"),L=document.createElement("a"),g=document.createElement("img"),b=document.createElement("p");a.append(n),a.append(i),i.append(l),l.append(r),r.append(d),d.append(c),d.append(p),i.append(m),m.append(o),o.append(L),L.append(g),L.append(b),i.classList.add("main-classements"),i.classList.add("cta-gp-btn"),l.classList.add("card-article-box"),m.classList.add("card-article-box"),r.classList.add("card-article"),o.classList.add("card-article"),d.classList.add("link-card-article"),L.classList.add("link-card-article"),p.classList.add("card-article-title"),b.classList.add("card-article-title"),n.innerHTML="Pas trop vite..! Tu as mis ton DRS ou quoi ?</br>Le championnat n'a pas encore d\xe9marr\xe9.</br></br>En attendant, regarde le classement de l'an pass\xe9, ou regarde la liste des pilotes de cette ann\xe9e !",d.setAttribute("href","../../archives/2022/classements/pilotes.html"),c.setAttribute("src","../../img/classements/2022.jpeg"),c.setAttribute("alt",""),p.textContent="Classement 2022",L.setAttribute("href","../../../pilotes/pilotes.html"),g.setAttribute("src","../../img/classements/constructeurs.jpeg"),g.setAttribute("alt",""),b.textContent="Pilotes 2023"}else if("2023"==e.season)for(let v=0;v<22;v++){let E=e.StandingsLists[0].DriverStandings[v].position,u=e.StandingsLists[0].DriverStandings[v].Driver.givenName,h=e.StandingsLists[0].DriverStandings[v].Driver.familyName;"P\xe9rez"==h?h="Perez":"H\xfclkenberg"==h&&(h="Hulkenberg");let f=u+" "+h,$=u.toLowerCase(),S=h.toLowerCase(),A=$+"-"+S,D=e.StandingsLists[0].DriverStandings[v].points,C=e.StandingsLists[0].DriverStandings[v].Constructors[0].constructorId,x=document.createElement("div"),y=document.createElement("p"),j=document.createElement("img"),k=document.createElement("a"),w=document.createElement("div"),I=document.createElement("p"),P=document.createElement("p");y.textContent=E,I.textContent=f,P.textContent=D+"pts";let B=document.getElementById("main-class");B.append(x),x.append(y),x.append(j),x.append(k),k.append(w),w.append(I),x.append(P),x.classList.add("classement-pilote"),y.classList.add("position"),j.classList.add("class-img"),w.classList.add("name-pilote-class"),P.classList.add("points"),j.setAttribute("src","../../../img/pilotes/"+$+"-profile.png"),j.setAttribute("alt",f),k.setAttribute("href","../../../pilotes/"+A+".html"),"ferrari"==C?x.classList.add("ferrari-btn"):"mercedes"==C?x.classList.add("mercedes-btn"):"red_bull"==C?x.classList.add("redbull-btn"):"alpine"==C?x.classList.add("alpine-btn"):"mclaren"==C?x.classList.add("mclaren-btn"):"williams"==C?x.classList.add("williams-btn"):"aston_martin"==C?x.classList.add("aston-btn"):"alphatauri"==C?x.classList.add("alpha-btn"):"alfa"==C?x.classList.add("alfa-btn"):"haas"==C&&(x.classList.remove("classement-pilote"),x.classList.add("classement-pilote-reverse"),x.classList.add("haas-btn"),x.classList.remove("btn-cons-class"),x.classList.add("btn-cons-class-reverse"))}}).catch(e=>console.error("Error:",e))}
+function getDriverStanding() {
+    fetch("https://ergast.com/api/f1/current/driverStandings.json")
+    .then((response) => response.json())
+    .then(({ MRData: { StandingsTable } }) => {
+
+        if (StandingsTable.season == "2023"){
+
+            //Cache endflag du Background
+            const endflag = document.getElementById('endflag');
+            endflag.setAttribute("style","visibility: hidden; display: none;");
+
+            // Ajout bloc CTA Classement
+            // Création, placement et attributions
+            let mainClassDri = document.getElementById("main-class");
+            let ctaGP = document.createElement('div');
+            mainClassDri.append(ctaGP);
+            ctaGP.classList.add("cta-class");
+
+            let ctaH2 = document.createElement("h2");
+            let ctaDivMain = document.createElement("div");
+                
+                let ctaDivBox2 = document.createElement("div");
+                    let ctaDivCard2 = document.createElement("div");
+                        let ctaDivA2 = document.createElement("a");
+                            let ctaDivImg2 = document.createElement("img");
+                            let ctaDivP2 = document.createElement("p");
+            
+            ctaGP.append(ctaH2);
+            ctaGP.append(ctaDivMain);
+                
+                ctaDivMain.append(ctaDivBox2);
+                    ctaDivBox2.append(ctaDivCard2);
+                        ctaDivCard2.append(ctaDivA2);
+                            ctaDivA2.append(ctaDivImg2);
+                            ctaDivA2.append(ctaDivP2);
+
+            ctaDivMain.classList.add("main-classements");
+            ctaDivMain.classList.add("cta-gp-btn");
+            
+            ctaDivBox2.classList.add("card-article-box");
+            
+            ctaDivCard2.classList.add("card-article");
+            
+            ctaDivA2.classList.add("link-card-article");
+            
+            ctaDivP2.classList.add("card-article-title");
+
+            ctaH2.innerHTML = "Pas trop vite..! Tu as mis ton DRS ou quoi ?</br>Le championnat n'a pas encore démarré.</br></br>En attendant, regarde la liste des pilotes de cette année !";
+
+            ctaDivMain.setAttribute('style', 'grid-template-columns: 1fr; margin-top: 2rem;');
+            ctaDivA2.setAttribute("href","../../../pilotes/pilotes.html");
+            ctaDivImg2.setAttribute("src","../../img/classements/pilotes.jpeg");
+            ctaDivImg2.setAttribute("alt","");
+            ctaDivP2.textContent = "Pilotes 2024";
+
+
+        } else if (StandingsTable.season == "2024"){
+            //console.log(StandingsTable)
+            for (let i = 0; i < 21; i++) {
+                // Création variables
+                const position = (StandingsTable.StandingsLists[0].DriverStandings[i].position);
+                const firstname = (StandingsTable.StandingsLists[0].DriverStandings[i].Driver.givenName);
+                let lastname = (StandingsTable.StandingsLists[0].DriverStandings[i].Driver.familyName);
+
+                //Exceptions Pérez / Hülkenberg
+                if (lastname == "Pérez"){
+                    lastname = "Perez";
+                } else if (lastname == "Hülkenberg"){
+                    lastname = "Hulkenberg"
+                }
+
+                const name = firstname + " " + lastname;
+                const nameImg = firstname.toLowerCase();
+                const lastnamelower = lastname.toLowerCase();
+                const namelink =  nameImg + "-" + lastnamelower;
+                const points = (StandingsTable.StandingsLists[0].DriverStandings[i].points);
+                const constructor = (StandingsTable.StandingsLists[0].DriverStandings[i].Constructors[0].constructorId);
+
+                // Création éléments HTML
+                let driverDiv = document.createElement('div');
+                    let driverP = document.createElement('p');
+                    let driverImg = document.createElement('img');
+                    let driverA = document.createElement('a');
+                        let linkDiv = document.createElement('div');
+                            let linkP = document.createElement('p');
+                    let driverP2 = document.createElement('p');
+
+                // Ajout texte aux éléments HTML
+                driverP.textContent = position;
+                linkP.textContent = name;
+                driverP2.textContent = points + "pts";
+
+
+                // Placement éléments HTML
+                const classContainer = document.getElementById("main-class")
+                classContainer.append(driverDiv);
+                    driverDiv.append(driverP);
+                    driverDiv.append(driverImg);
+                    driverDiv.append(driverA);
+                        driverA.append(linkDiv);
+                            linkDiv.append(linkP);
+                    driverDiv.append(driverP2);
+
+
+                // Attribution class et attribut aux éléments HTML
+                driverDiv.classList.add("classement-pilote");
+                driverP.classList.add("position");
+                driverImg.classList.add("class-img");
+                linkDiv.classList.add("name-pilote-class");
+                driverP2.classList.add("points");
+
+                driverImg.setAttribute("src","../../../img/pilotes/" + nameImg + "-profile.png");
+                driverImg.setAttribute("alt", name);
+                driverA.setAttribute("href","../../../pilotes/" + namelink + ".html");
+
+
+                // Boucle IF pour attribution class par écurie
+                if (constructor == "ferrari") {
+                    driverDiv.classList.add("ferrari-btn");
+
+                } else if (constructor == "mercedes"){
+                    driverDiv.classList.add("mercedes-btn");
+
+                } else if (constructor == "red_bull"){
+                    driverDiv.classList.add("redbull-btn");
+
+                } else if (constructor == "alpine"){
+                    driverDiv.classList.add("alpine-btn");
+
+                } else if (constructor == "mclaren"){
+                    driverDiv.classList.add("mclaren-btn");
+
+                } else if (constructor == "williams"){
+                    driverDiv.classList.add("williams-btn");
+
+                } else if (constructor == "aston_martin"){
+                    driverDiv.classList.add("aston-btn");
+
+                } else if (constructor == "alphatauri"){
+                    driverDiv.classList.add("alpha-btn");
+
+                } else if (constructor == "alfa"){
+                    driverDiv.classList.add("alfa-btn");
+
+                } else if (constructor == "haas"){
+                    driverDiv.classList.remove("classement-pilote");
+                    driverDiv.classList.add("classement-pilote-reverse");
+                    driverDiv.classList.add("haas-btn");
+                    driverDiv.classList.remove("btn-cons-class");
+                    driverDiv.classList.add("btn-cons-class-reverse");
+                }
+                
+        }
+        }
+    })
+    .catch((error) => console.error("Error:", error));
+    }
