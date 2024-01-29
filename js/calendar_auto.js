@@ -6,7 +6,7 @@ function generateDynamicCalendar() {
         { num: '04', date: '2024-04-07', shortdate: '07/04', name: 'Japon', sprint: 'no', flag: 'japon', link: 'Japon' },
         { num: '05', date: '2024-04-21', shortdate: '21/04', name: 'Chine', sprint: 'yes', flag: 'chine', link: 'Chine' },
         { num: '06', date: '2024-05-05', shortdate: '05/05', name: 'Miami', sprint: 'yes', flag: 'etatsunis', link: 'Miami' },
-        { num: '07', date: '2024-05-19', shortdate: '19/05', name: 'Emilie-Romagne', sprint: 'no', flag: 'Italie', link: 'emilieromagne' },
+        { num: '07', date: '2024-05-19', shortdate: '19/05', name: 'Emilie-Romagne', sprint: 'no', flag: 'italie', link: 'emilieromagne' },
         { num: '08', date: '2024-05-26', shortdate: '26/05', name: 'Monaco', sprint: 'no', flag: 'monaco', link: 'Monaco' },
         { num: '09', date: '2024-06-09', shortdate: '09/06', name: 'Canada', sprint: 'no', flag: 'canada', link: 'Canada' },
         { num: '10', date: '2024-06-23', shortdate: '23/06', name: 'Espagne', sprint: 'no', flag: 'espagne', link: 'Espagne' },
