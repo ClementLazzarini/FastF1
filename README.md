@@ -23,7 +23,7 @@ Fast F1 is a static website built with HTML, CSS, and vanilla JavaScript, aiming
 Contributions are welcome! Feel free to fork the repository and submit a pull request with your enhancements.
 
 ## Roadmap
-Check out our roadmap for upcoming features and improvements.
+Development in break for 2024 season.
 
 ## Stay Connected
 Follow us on Twitter [@FastF1](https://twitter.com/FastF1) for the latest updates!
