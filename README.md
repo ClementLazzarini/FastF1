@@ -15,10 +15,6 @@ Fast F1 is a static website built with HTML, CSS, and vanilla JavaScript, aiming
 1. Clone the repository.
 2. Open `index.html` in your preferred web browser.
 
-## Screenshots
-![Screenshot 1](/path/to/screenshot1.png)
-![Screenshot 2](/path/to/screenshot2.png)
-
 ## How to Contribute
 Contributions are welcome! Feel free to fork the repository and submit a pull request with your enhancements.
 
@@ -26,9 +22,9 @@ Contributions are welcome! Feel free to fork the repository and submit a pull re
 Development in break for 2024 season.
 
 ## Stay Connected
-Follow us on Twitter [@FastF1](https://twitter.com/FastF1) for the latest updates!
+Follow us on Twitter [@FastF1](https://twitter.com/FastF1fr) for the latest updates!
 
 ## Contact
-For any questions or feedback, reach out to us at [fastf1@example.com](mailto:fastf1@example.com).
+[My Website](https://www.clementlazzarini.com)
 
 Enjoy exploring the thrilling world of Formula 1 with Fast F1! 🏎️🏆
